@@ -4,7 +4,9 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "build": "webpack",
+    "serve": "live-server public/",
+    "build:dev": "webpack --env development",
+    "build:prod": "webpack -p --env production",
     "dev": "webpack-dev-server"
   },
   "dependencies": {
@@ -16,6 +18,8 @@
     "babel-loader": "^8.1.0",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "css-loader": "^3.5.3",
+    "live-server": "^1.2.1",
+    "mini-css-extract-plugin": "^0.9.0",
     "moment": "^2.25.3",
     "node-sass": "^4.14.1",
     "normalize.css": "^8.0.1",
