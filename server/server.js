@@ -8,7 +8,7 @@ const publicDirectoryPath = path.join(__dirname,'../public')
 server.use(express.static(publicDirectoryPath))
 
 server.get('*',(req,res)=>{
-    res.send(path.join(publicDirectoryPath,'index.html'))
+    res.sendFile(path.join(publicDirectoryPath,'index.html'))
 })
 
 const port = process.env.PORT || 3000
