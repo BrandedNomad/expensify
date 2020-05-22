@@ -11,7 +11,7 @@ server.get('*',(req,res)=>{
     res.sendFile(path.join(publicDirectoryPath,'index.html'))
 })
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT
 
 server.listen(port, ()=>{
     console.log("Server is up and running on port " + port)
