@@ -1,3 +1,5 @@
+
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
@@ -5,10 +7,11 @@ import 'normalize.css/normalize.css'
 import './styles/styles.scss'
 import AppRouter from './routers/AppRouter'
 import configureStore from './store/configureStore'
-import {addExpense, removeExpense, editExpense} from './actions/expenses'
+import {addExpense, removeExpense, editExpense,startSetExpenses} from './actions/expenses'
 import {setTextFilter} from './actions/filters'
 import getVisibleExpenses from './selectors/expenses'
-import './firebase/firebase';
+import Firebase from './firebase/firebase'
+import {firebase} from './firebase/firebase';
 
 const store = configureStore();
 
@@ -18,15 +21,28 @@ store.subscribe(()=>{
     console.log(visibleExpenses)
 })
 
-const expenseOne = store.dispatch(addExpense({description:'Rent',amount:100, createdAt:3200}))
-const expenseTwo = store.dispatch(addExpense({description:'Coffee',amount:50,createdAt:5200}))
-const expenseThree = store.dispatch(addExpense({description:'Water Bill',amount:500,createdAt:6705}))
+
 
 
 const jsx = (
     <Provider store={store}>
         <AppRouter/>
     </Provider>
-)
+);
 
-ReactDOM.render(jsx, document.getElementById('root'));
+
+
+
+ReactDOM.render(<p>Loading...</p>, document.getElementById('root'));
+
+store.dispatch(startSetExpenses()).then(()=>{
+    ReactDOM.render(jsx, document.getElementById('root'));
+})
+
+firebase.auth().onAuthStateChanged((user)=>{
+    if(user){
+        console.log('log in')
+    }else{
+        console.log('log out')
+    }
+})
