@@ -4,7 +4,7 @@ import {Link, NavLink} from "react-router-dom";
 const NotFoundPage = ()=>{
     return (
         <div>
-            404 - <Link to="/">Go Home</Link>
+            404 - <Link to="/dashboard">Go Home</Link>
         </div>
     )
 }

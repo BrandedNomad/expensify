@@ -1,8 +1,8 @@
 import * as firebase from 'firebase';
-import 'firebase/auth'
+
 
 const firebaseConfig = {
-    apiKey: process.env.FIREBASE_API_KEY,
+    apiKey: 'AIzaSyAdcTBkULme5gAMwksm7n4aSm9uRVXVkTQ',
     authDomain: "expensify-3a1e5.firebaseapp.com",
     databaseURL: "https://expensify-3a1e5.firebaseio.com",
     projectId: "expensify-3a1e5",
