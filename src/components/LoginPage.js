@@ -5,8 +5,12 @@ import {startLogin} from '../actions/auth'
 const LoginPage = ({startLogin})=>{
 
     return (
-        <div>
-            <button onClick ={startLogin}>Login</button>
+        <div className="box-layout">
+            <div className="box-layout__box">
+                <h1 className="box-layout__title">Expensify App</h1>
+                <p>Take control of your expenses.</p>
+                <button className="box-layout__button" onClick ={startLogin}>Login with Google</button>
+            </div>
         </div>
     )
 }
